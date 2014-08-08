@@ -10,13 +10,13 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha', 'browserify'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      'js/*.js',
-      'test/test-case/*.js'
+      /*'js/*.js',
+      'test/*.js'*/
     ],
 
 
@@ -61,6 +61,20 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: false,
+
+    browserify: {
+        debug: true,
+        files: [
+            "test/**/*.js"
+        ],
+        transform: [
+            "espowerify"
+        ]
+    },
+
+    preprocessors: {
+        "/**/*.browserify": "browserify"
+    }
   });
 };
