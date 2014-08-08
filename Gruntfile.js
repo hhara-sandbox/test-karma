@@ -20,7 +20,6 @@ module.exports = function (grunt) {
     // package.json内のdevDependenciesで定義されているパッケージ中『grunt-』で始まるものをロードする
     for (var taskName in pkg.devDependencies) {
         if (taskName.substr(0, 6) == 'grunt-') {
-            console.log('load npm task -> ' + taskName);
             grunt.loadNpmTasks(taskName);
         }
     }
